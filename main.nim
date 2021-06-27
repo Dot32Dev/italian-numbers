@@ -27,10 +27,14 @@ proc `$`(num: italianNumber): string =
 			str = "cento"
 
 	return str
-			
 
 while true:
 	let number = rand(100)
-	# echo "Write ", number, " in italian"
-	echo number, " in italian is ", number.italianNumber
-	break
+	echo "Legire ", number, " a italiano:"
+	let input = stdin.readLine
+	if input == $number.italianNumber:
+		echo "corretto!"
+	else:
+		echo "non corretto :("
+		echo "è ", number.italianNumber
+		break
