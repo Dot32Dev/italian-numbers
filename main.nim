@@ -1,5 +1,6 @@
 #? replace(sub = "\t", by = " ")
 import random
+import strutils
 randomize()
 
 type italianNumber = distinct int
@@ -8,7 +9,6 @@ proc `$`(num: italianNumber): string =
 	const digits = ["", "uno", "due", "tre", "quattro", "cinque", "sei", "sette", "otto", "nove"]
 	const teens = ["dieci", "undici", "dodici", "tredici", "quattordici", "quindici", "sedici", "dicciasette", "diciotto", "dicianove"]
 	const tens = ["venti", "trenta", "quaranta", "cinquanta", "sessanta", "settanta", "ottanta", "novanta"]
-	const tensVowel = ["vent", "trent", "quarant", "cinquant", "sessant", "settant", "ottant", "novant"]
 
 	var str: string
 	var num = num.int
@@ -19,13 +19,11 @@ proc `$`(num: italianNumber): string =
 		of 10..19:
 			str = teens[num-10]
 		of 20..99:
+			str = tens[(num div 10)-2] & digits[num mod 10]
 			if num mod 10 in [1, 8]: 
-				str = tensVowel[(num div 10)-2] & digits[num mod 10]
-			else:
-				str = tens[(num div 10)-2] & digits[num mod 10]
+				str.delete(tens[(num div 10)-2].len-1, tens[(num div 10)-2].len-1)
 		else:
 			str = "cento"
-
 	return str
 
 while true:
