@@ -1,4 +1,5 @@
-> Note: It has been pointed out that the correct translation for "write" is leggere, not legire, and I made a mistake when originally making this.
+> [!NOTE]
+> It has been pointed out that the correct translation for "write" is leggere, not legire, and I made a mistake when originally making this.
 
 # Italian numbers
 this little program will test your knowlage of italian numbers
